@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  identidock:
+    build: .
+    ports:
+      - 9090:9090
+      - 9091:9091
+    links:
+      - dnmonster
+      - redis
+  dnmonster:
+    image: amouat/dnmonster:1.0
+  redis:
+    image: redis:3.0
